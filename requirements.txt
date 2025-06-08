@@ -5,5 +5,6 @@ langchain
 langchain-huggingface
 python-dotenv
 faiss-cpu
-fastapi
-uvicorn
+python-multipart
+pydantic
+uvicorn[standard]
