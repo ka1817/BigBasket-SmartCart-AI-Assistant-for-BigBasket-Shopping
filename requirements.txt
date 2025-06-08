@@ -6,5 +6,7 @@ langchain-huggingface
 python-dotenv
 faiss-cpu
 python-multipart
+fastapi
 pydantic
 uvicorn[standard]
+jinja2
