@@ -1,5 +1,3 @@
-# src/data_preprocess.py
-
 from langchain_core.documents import Document
 import pandas as pd
 import sys
@@ -13,10 +11,8 @@ from src.data_ingestion import load_bigbasket_data
 def preprocess_bigbasket_docs():
     df = load_bigbasket_data()
 
-    # Drop rows with missing critical values
     df.dropna(subset=["product", "description", "sale_price", "market_price", "rating"], inplace=True)
 
-    # Ensure numeric types
     df["sale_price"] = pd.to_numeric(df["sale_price"], errors="coerce")
     df["market_price"] = pd.to_numeric(df["market_price"], errors="coerce")
     df["rating"] = pd.to_numeric(df["rating"], errors="coerce")

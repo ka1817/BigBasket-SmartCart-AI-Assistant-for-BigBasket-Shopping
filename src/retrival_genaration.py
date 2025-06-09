@@ -1,5 +1,3 @@
-# src/retrival_generation.py
-
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -12,7 +10,6 @@ from pydantic import BaseModel
 import warnings
 warnings.filterwarnings('ignore')
 
-# LangChain
 from langchain.schema import Document, BaseRetriever
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
@@ -21,19 +18,15 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 
-# Sentence Transformers Reranker
 from sentence_transformers import CrossEncoder
 
-# Your modules
 from src.data_preprocessing import preprocess_bigbasket_docs
 from src.query_rewritting import query_rewriting
 
 import warnings
 warnings.filterwarnings('ignore')
-# 🔐 GROQ API Key
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-# 🔁 CrossEncoder Reranker
 reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
 def rerank_documents(query: str, retrieved_docs: List[Document]) -> List[Document]:
