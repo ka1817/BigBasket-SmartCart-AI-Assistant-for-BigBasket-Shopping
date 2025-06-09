@@ -28,7 +28,8 @@ from sentence_transformers import CrossEncoder
 from src.data_preprocessing import preprocess_bigbasket_docs
 from src.query_rewritting import query_rewriting
 
-
+import warnings
+warnings.filterwarnings('ignore')
 # 🔐 GROQ API Key
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
@@ -95,13 +96,3 @@ def generate_bigbasket_chain(vectorstore):
 
     return chain
 
-
-if __name__ == '__main__':
-    vstore = ingest_bigbasket_data()
-    chain = generate_bigbasket_chain(vstore)
-
-    query = "Which face wash is best for oily skin and acne control?"
-    rewritten_query = query_rewriting(query)
-
-    response = chain.invoke(rewritten_query)
-    print(f"Response: {response}")
