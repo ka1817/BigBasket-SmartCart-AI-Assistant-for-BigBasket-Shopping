@@ -5,7 +5,7 @@ def test_ingest_bigbasket_data():
     assert vectorstore is not None
 
     retriever = vectorstore.as_retriever()
-    results = retriever.invoke("organic apples")
+    results = retriever.invoke("skin products")
     assert isinstance(results, list)
     assert all(hasattr(doc, "page_content") for doc in results)
 
