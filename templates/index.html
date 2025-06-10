@@ -1,45 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>BigBasket Product Assistant</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>BigBasket Assistant</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body>
 
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="chatbot-toggle" id="chatbotToggle" title="Chat with us">💬</div>
 
-            <div class="card shadow-lg">
-                <div class="card-header text-white bg-success">
-                    <h4 class="text-center">🛒 BigBasket Product Assistant</h4>
-                </div>
+<div class="chatbot-box shadow" id="chatbotBox">
+  <div class="chatbot-header d-flex justify-content-between align-items-center">
+    <strong>🛒 BigBasket Assistant</strong>
+    <span id="closeChat" style="cursor: pointer;">&#10005;</span>
+  </div>
 
-                <div class="card-body">
-                    <form method="post">
-                        <div class="mb-3">
-                            <label for="query" class="form-label">Ask about products (e.g. "Best rice under ₹100")</label>
-                            <input type="text" class="form-control" id="query" name="query" placeholder="Type your query..." value="{{ query if query else '' }}" required>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-success px-4">Ask</button>
-                        </div>
-                    </form>
-                </div>
-
-                {% if response %}
-                <div class="card-footer bg-light">
-                    <h5 class="text-primary">Assistant's Response:</h5>
-                    <div class="alert alert-info">{{ response }}</div>
-                </div>
-                {% endif %}
-            </div>
-
-        </div>
+  <div class="chatbot-messages" id="chatMessages">
+    <div class="message bot">
+    👋 Hello! I’m your BigBasket Assistant.<br>
+    You can ask me about product availability, pricing, delivery slots, or anything else related to BigBasket.
     </div>
+
+    {% if response %}
+      <div class="message bot">{{ response }}</div>
+    {% endif %}
+  </div>
+
+  <form method="post" class="chatbot-input d-flex" id="chatForm">
+    <input type="text" name="query" class="form-control" placeholder="Ask me anything..." required autocomplete="off">
+    <button class="btn btn-primary" type="submit">➤</button>
+  </form>
+
+  <div class="chat-footer text-center small py-2">
+    By chatting, you agree to our <a href="#">disclaimer</a>.
+  </div>
 </div>
+
+<script>
+  const toggle = document.getElementById("chatbotToggle");
+  const box = document.getElementById("chatbotBox");
+  const close = document.getElementById("closeChat");
+
+  toggle.onclick = () => box.classList.toggle("open");
+  close.onclick = () => box.classList.remove("open");
+
+  document.getElementById("chatForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const input = this.querySelector('input');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const chatBox = document.getElementById("chatMessages");
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "message user";
+    userMsg.textContent = msg;
+    chatBox.appendChild(userMsg);
+
+    input.value = "";
+
+    const botTyping = document.createElement("div");
+    botTyping.className = "message bot";
+    botTyping.textContent = "Responding...";
+    chatBox.appendChild(botTyping);
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    const formData = new FormData();
+    formData.append("query", msg);
+
+    fetch("/", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const newAnswer = doc.querySelector(".message.bot:last-child")?.textContent;
+
+      botTyping.remove();
+      const botMsg = document.createElement("div");
+      botMsg.className = "message bot";
+      botMsg.textContent = newAnswer || "Sorry, no response.";
+      chatBox.appendChild(botMsg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    })
+    .catch(err => {
+      botTyping.remove();
+      const errMsg = document.createElement("div");
+      errMsg.className = "message bot";
+      errMsg.textContent = "Something went wrong.";
+      chatBox.appendChild(errMsg);
+    });
+  });
+</script>
 
 </body>
 </html>
+
