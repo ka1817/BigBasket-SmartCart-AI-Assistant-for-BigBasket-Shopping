@@ -1,0 +1,26 @@
+# Ignore Python cache files
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+README.md/
+# Ignore virtual environments
+venv/
+
+
+# Ignore Git and GitHub Actions
+.git/
+.github/
+
+# Ignore test files
+tests/
+
+# Ignore IDE/editor configs
+.vscode/
+.idea/
+*.swp
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
