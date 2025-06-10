@@ -10,3 +10,4 @@ fastapi
 pydantic
 uvicorn[standard]
 jinja2
+pytest
