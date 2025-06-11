@@ -1,17 +1,18 @@
 ## 🛒 BigBasket SmartCart – AI Assistant for BigBasket Shopping
-
-🧾 Introduction
+---
+## 🧾 Introduction
 
 The rapid evolution of AI technologies has created new opportunities for enhancing user experience in digital commerce. Leveraging state-of-the-art language models and retrieval systems, intelligent assistants can now understand complex queries, process vast amounts of product data, and deliver precise, context-aware responses. This project presents a scalable and robust AI-powered shopping assistant tailored for BigBasket's product ecosystem. Built using Retrieval-Augmented Generation (RAG), vector embeddings, and large language models (LLMs), the system enables efficient and intelligent product discovery through natural language interaction.
 
 ---
 
-❗ Problem Statement
+## ❗ Problem Statement
+
 Online shoppers frequently seek personalized and context-specific product recommendations, such as identifying the best-rated skincare item at the lowest price. However, conventional search systems often fall short in understanding such nuanced queries, lacking the ability to interpret intent, compare attributes across products, and deliver concise, relevant results. This creates friction in the user journey, leading to suboptimal shopping experiences. There is a clear need for an intelligent assistant that can process natural language queries, reason over structured product data, and deliver accurate, insightful responses to aid decision-making.
 
 ---
 
-🚀 Features
+## 🚀 Features
 
 🔍 Natural Language Product Search
 Users can ask queries like "cheapest skin care with highest rating" or "best perfume under ₹500".
@@ -136,9 +137,9 @@ Response: "Garlic Oil - Vegetarian Capsule 500 mg by Sri Sri Ayurveda is availab
 
 File: .github/workflows/ci-cd.yml
 
-✅ ci-test: Runs unit tests using pytest.
+✅ CI-Test: Runs unit tests using pytest.
 
-🐳 cd-docker: Builds Docker image and pushes to DockerHub.
+🐳 CD-Docker: Builds Docker image and pushes to DockerHub.
 
 Triggered on push to main or pull request.
 
@@ -191,13 +192,14 @@ docker run -d --env-file .env -p 8000:8000 pranavreddy123/bigbasket-assistant:la
 
 ---
 
-🔗 Links
+## 🔗 Links
 
-🔍 GitHub Repo: BigBasket-SmartCart-AI-Assistant
+🔍 GitHub Repo: BigBasket-SmartCart-AI-Assistant-for-BigBasket-Shopping
 
 🐳 DockerHub: pranavreddy123/bigbasket-assistant
 
 ---
 
-🧑‍💻 Author
+## 🧑‍💻 Developed By
+
 Pranav Reddy
