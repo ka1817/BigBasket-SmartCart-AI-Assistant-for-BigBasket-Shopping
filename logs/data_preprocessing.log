@@ -1,0 +1,10 @@
+2025-06-11 11:25:09,822 - INFO - Starting BigBasket data preprocessing...
+2025-06-11 11:25:10,074 - INFO - Original dataset shape: (27555, 10)
+2025-06-11 11:25:10,112 - INFO - After dropping NA in essential columns: (18840, 10)
+2025-06-11 11:25:10,112 - INFO - After cleaning price/rating columns: (18840, 10)
+2025-06-11 11:25:12,113 - INFO - Generated 18840 documents for RAG
+2025-06-11 11:50:13,843 - INFO - Starting BigBasket data preprocessing...
+2025-06-11 11:50:14,085 - INFO - Original dataset shape: (27555, 10)
+2025-06-11 11:50:14,114 - INFO - After dropping NA in essential columns: (18840, 10)
+2025-06-11 11:50:14,119 - INFO - After cleaning price/rating columns: (18840, 10)
+2025-06-11 11:50:15,739 - INFO - Generated 18840 documents for RAG

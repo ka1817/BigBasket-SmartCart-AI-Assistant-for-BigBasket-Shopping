@@ -1,0 +1,11 @@
+2025-06-11 11:25:09,821 - INFO - Starting preprocessing and embedding for BigBasket data
+2025-06-11 11:45:31,896 - INFO - Vectorstore creation complete
+2025-06-11 11:45:31,914 - INFO - Generating RAG chain with custom retriever
+2025-06-11 11:45:33,124 - INFO - RAG chain successfully created
+2025-06-11 11:46:09,979 - INFO - Retrieving documents for: 'Find the skincare product with the highest user rating.'
+2025-06-11 11:46:10,317 - INFO - Reranking 10 documents for query: 'Find the skincare product with the highest user rating.'
+2025-06-11 11:46:11,991 - INFO - Reranking complete
+2025-06-11 11:48:20,887 - INFO - Retrieving documents for: 'Identify the highest-rated hair product available based on user reviews and expert recommendations.'
+2025-06-11 11:48:21,049 - INFO - Reranking 10 documents for query: 'Identify the highest-rated hair product available based on user reviews and expert recommendations.'
+2025-06-11 11:48:21,728 - INFO - Reranking complete
+2025-06-11 11:50:19,694 - INFO - Reranking complete

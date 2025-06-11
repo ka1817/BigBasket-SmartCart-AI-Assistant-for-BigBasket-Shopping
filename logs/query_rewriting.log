@@ -1,0 +1,6 @@
+2025-06-11 11:46:06,048 - INFO - Received query for rewriting: 'which is the best skin product with highest rating'
+2025-06-11 11:46:09,960 - INFO - Rewritten query: 'Find the skincare product with the highest user rating.'
+2025-06-11 11:48:17,915 - INFO - Received query for rewriting: 'which is the best hair product available'
+2025-06-11 11:48:20,887 - INFO - Rewritten query: 'Identify the highest-rated hair product available based on user reviews and expert recommendations.'
+2025-06-11 11:50:15,771 - INFO - Received query for rewriting: 'which is the best skin care product with highest rating'
+2025-06-11 11:50:17,134 - INFO - Rewritten query: 'Identify the skincare product with the highest customer rating.'

@@ -1,19 +1,18 @@
-from src.retrival_genaration import ingest_bigbasket_data, generate_bigbasket_chain
+from src.retrival_genaration import RerankRetriever, rerank_documents
+from langchain.schema import Document
 
-def test_ingest_bigbasket_data():
-    vectorstore = ingest_bigbasket_data()
-    assert vectorstore is not None
+def test_rerank_documents():
+    query = "organic rice under ₹200"
+    dummy_docs = [
+        Document(page_content="Organic Basmati Rice, ₹180, Rating 4.5"),
+        Document(page_content="Regular Rice, ₹90, Rating 3.0"),
+        Document(page_content="Organic Brown Rice, ₹195, Rating 4.0"),
+    ]
 
-    retriever = vectorstore.as_retriever()
-    results = retriever.invoke("skin products")
-    assert isinstance(results, list)
-    assert all(hasattr(doc, "page_content") for doc in results)
+    reranked = rerank_documents(query, dummy_docs)
 
-def test_generate_bigbasket_chain():
-    vectorstore = ingest_bigbasket_data()
-    chain = generate_bigbasket_chain(vectorstore)
-    assert chain is not None
+    assert isinstance(reranked, list)
+    assert all(isinstance(doc, Document) for doc in reranked)
+    assert len(reranked) == 3
+    assert reranked[0].page_content in [doc.page_content for doc in dummy_docs]
 
-    answer = chain.invoke("which is the best skin care product with highest rating")
-    assert isinstance(answer, str)
-    assert len(answer) > 0

@@ -1,0 +1,6 @@
+2025-06-11 11:25:09,820 - INFO - Ingesting data and initializing vectorstore...
+2025-06-11 11:45:33,124 - INFO - RAG pipeline initialized
+2025-06-11 11:46:06,047 - INFO - Received query: 'which is the best skin product with highest rating'
+2025-06-11 11:46:12,625 - INFO - Answer generated for query
+2025-06-11 11:48:17,914 - INFO - Received query: 'which is the best hair product available'
+2025-06-11 11:48:22,384 - INFO - Answer generated for query
