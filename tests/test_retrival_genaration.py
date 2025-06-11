@@ -1,5 +1,6 @@
 from src.retrival_genaration import RerankRetriever, rerank_documents
 from langchain.schema import Document
+from sentence_transformers import CrossEncoder
 
 def test_rerank_documents():
     query = "organic rice under ₹200"
