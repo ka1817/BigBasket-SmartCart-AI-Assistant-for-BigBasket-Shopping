@@ -4,3 +4,5 @@
 2025-06-11 11:48:20,887 - INFO - Rewritten query: 'Identify the highest-rated hair product available based on user reviews and expert recommendations.'
 2025-06-11 11:50:15,771 - INFO - Received query for rewriting: 'which is the best skin care product with highest rating'
 2025-06-11 11:50:17,134 - INFO - Rewritten query: 'Identify the skincare product with the highest customer rating.'
+2025-06-12 08:42:28,357 - INFO - Received query for rewriting: 'which is the cheapest hair product with high rating'
+2025-06-12 08:42:30,952 - INFO - Rewritten query: 'Find the most affordable hair product with a high rating.'
