@@ -9,3 +9,10 @@
 2025-06-11 11:48:21,049 - INFO - Reranking 10 documents for query: 'Identify the highest-rated hair product available based on user reviews and expert recommendations.'
 2025-06-11 11:48:21,728 - INFO - Reranking complete
 2025-06-11 11:50:19,694 - INFO - Reranking complete
+2025-06-15 09:25:34,763 - INFO - Starting preprocessing and embedding for BigBasket data
+2025-06-15 09:53:24,102 - INFO - Vectorstore creation complete
+2025-06-15 09:53:24,118 - INFO - Generating RAG chain with custom retriever
+2025-06-15 09:53:26,441 - INFO - RAG chain successfully created
+2025-06-15 10:33:05,542 - INFO - Retrieving documents for: 'Which perfumes are currently in stock?'
+2025-06-15 10:33:06,057 - INFO - Reranking 10 documents for query: 'Which perfumes are currently in stock?'
+2025-06-15 10:33:07,609 - INFO - Reranking complete

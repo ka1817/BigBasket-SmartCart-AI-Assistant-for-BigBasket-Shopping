@@ -6,3 +6,5 @@
 2025-06-11 11:50:17,134 - INFO - Rewritten query: 'Identify the skincare product with the highest customer rating.'
 2025-06-12 08:42:28,357 - INFO - Received query for rewriting: 'which is the cheapest hair product with high rating'
 2025-06-12 08:42:30,952 - INFO - Rewritten query: 'Find the most affordable hair product with a high rating.'
+2025-06-15 10:33:02,629 - INFO - Received query for rewriting: 'which is perfume that is available?'
+2025-06-15 10:33:05,534 - INFO - Rewritten query: 'Which perfumes are currently in stock?'

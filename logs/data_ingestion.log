@@ -4,3 +4,5 @@
 2025-06-11 11:50:13,843 - INFO - Dataset shape: (27555, 10)
 2025-06-11 11:50:14,085 - INFO - Data loaded successfully from C:\Users\saipr\BigBasket\data\BigBasket Products.csv
 2025-06-11 11:50:14,085 - INFO - Dataset shape: (27555, 10)
+2025-06-15 09:25:35,021 - INFO - Data loaded successfully from C:\Users\saipr\BigBasket\data\BigBasket Products.csv
+2025-06-15 09:25:35,023 - INFO - Dataset shape: (27555, 10)
