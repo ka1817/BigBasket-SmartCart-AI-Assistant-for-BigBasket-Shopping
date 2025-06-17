@@ -12,6 +12,46 @@ Online shoppers frequently seek personalized and context-specific product recomm
 
 ---
 
+## Business Goal:
+
+To enhance the shopping experience, boost conversion rates, and optimize search efficiency by enabling natural language-based product search that understands user intent and delivers context-aware, personalized recommendations.
+
+
+
+## 💰 Business Impact (Revenue + Cost)
+
+💸 1. Increased Conversion Rates (↑ Revenue)
+
+    • Users find relevant products faster, leading to more product views, cart adds, and purchases
+
+    • Personalized recommendations match buyer intent better than traditional search
+
+    • Better UX = lower drop-off rates
+
+📈 Even a 1–2% uplift in conversions from improved product search can lead to significant revenue gains for a large marketplace like BigBasket.
+
+📉 2. Reduced Customer Support Queries (↓ Cost)
+
+    • AI assistant can handle informational and product-related queries
+
+    • Reduces manual intervention, live chat support, and email volume
+
+    • More self-service = less operational overhead
+
+⏱️ 3. Reduced Time-to-Purchase (↑ Efficiency)
+
+    • Customers make faster decisions because the assistant summarizes comparisons (e.g., price vs. rating trade-offs)
+
+    • This shortens the purchase journey and increases user satisfaction
+
+🧪 4. Rapid Experimentation & Deployment (↓ Dev Costs)
+
+    • The project is modular, Dockerized, and CI/CD enabled → easier to iterate and deploy
+
+    • Can be extended to other verticals (electronics, fashion) or other marketplaces with minimal changes
+
+---
+
 ## 🚀 Features
 
 🔍 Natural Language Product Search
