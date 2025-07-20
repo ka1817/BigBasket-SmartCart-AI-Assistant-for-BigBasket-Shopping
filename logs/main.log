@@ -8,3 +8,20 @@
 2025-06-15 09:53:26,441 - INFO - RAG pipeline initialized
 2025-06-15 10:33:02,629 - INFO - Received query: 'which is perfume that is available?'
 2025-06-15 10:33:08,616 - INFO - Answer generated for query
+2025-07-20 07:23:43,839 - INFO - Ingesting data and initializing vectorstore...
+2025-07-20 07:42:39,307 - INFO - RAG pipeline initialized
+2025-07-20 07:45:50,585 - INFO - Received query: 'which best hair product with above 4.5 rating'
+2025-07-20 07:45:55,753 - INFO - Answer generated for query
+2025-07-20 07:49:38,320 - INFO - Ingesting data and initializing vectorstore...
+2025-07-20 08:17:17,715 - INFO - RAG pipeline initialized
+2025-07-20 08:17:56,279 - INFO - Received query: 'which is the best hair product under 500 and with above 4.5 rating'
+2025-07-20 08:18:03,532 - INFO - Answer generated for query
+2025-07-20 08:19:07,942 - INFO - Received query: 'which is the best skin product with highest rating'
+2025-07-20 08:19:13,309 - INFO - Answer generated for query
+2025-07-20 08:20:16,731 - INFO - Received query: 'which is best detergent based on rating'
+2025-07-20 08:20:28,837 - INFO - Answer generated for query
+2025-07-20 08:21:32,531 - INFO - Ingesting data and initializing vectorstore...
+2025-07-20 08:24:10,957 - INFO - Ingesting data and initializing vectorstore...
+2025-07-20 08:24:18,981 - INFO - RAG pipeline initialized
+2025-07-20 08:24:58,911 - INFO - Received query: 'Which shampoo is best for dry hair with high ratings?'
+2025-07-20 08:25:08,744 - INFO - Answer generated for query

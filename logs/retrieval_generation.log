@@ -16,3 +16,33 @@
 2025-06-15 10:33:05,542 - INFO - Retrieving documents for: 'Which perfumes are currently in stock?'
 2025-06-15 10:33:06,057 - INFO - Reranking 10 documents for query: 'Which perfumes are currently in stock?'
 2025-06-15 10:33:07,609 - INFO - Reranking complete
+2025-07-20 07:23:43,850 - INFO - Starting preprocessing and embedding for BigBasket data
+2025-07-20 07:42:36,504 - INFO - Vectorstore creation complete
+2025-07-20 07:42:36,555 - INFO - Generating RAG chain with custom retriever
+2025-07-20 07:42:39,303 - INFO - RAG chain successfully created
+2025-07-20 07:45:53,694 - INFO - Retrieving documents for: 'Find the hair product with the highest rating above 4.5.'
+2025-07-20 07:45:53,992 - INFO - Reranking 10 documents for query: 'Find the hair product with the highest rating above 4.5.'
+2025-07-20 07:45:54,717 - INFO - Reranking complete
+2025-07-20 07:49:38,320 - INFO - Loading or creating vectorstore for BigBasket data
+2025-07-20 07:49:44,768 - INFO - No existing index found. Creating a new one...
+2025-07-20 08:17:15,966 - INFO - Vectorstore saved to disk at C:\Users\saipr\BigBasket\vectorstore
+2025-07-20 08:17:15,985 - INFO - Generating RAG chain with custom retriever
+2025-07-20 08:17:17,714 - INFO - RAG chain successfully created
+2025-07-20 08:17:59,657 - INFO - Retrieving documents for: 'Find hair products with a rating above 4.5 and a price under 500.'
+2025-07-20 08:18:01,182 - INFO - Reranking 10 documents for query: 'Find hair products with a rating above 4.5 and a price under 500.'
+2025-07-20 08:18:02,846 - INFO - Reranking complete
+2025-07-20 08:19:09,682 - INFO - Retrieving documents for: 'Identify skincare products with the highest customer ratings.'
+2025-07-20 08:19:09,796 - INFO - Reranking 10 documents for query: 'Identify skincare products with the highest customer ratings.'
+2025-07-20 08:19:12,333 - INFO - Reranking complete
+2025-07-20 08:20:19,664 - INFO - Retrieving documents for: 'Find detergent with the highest average user rating.'
+2025-07-20 08:20:20,140 - INFO - Reranking 10 documents for query: 'Find detergent with the highest average user rating.'
+2025-07-20 08:20:27,037 - INFO - Reranking complete
+2025-07-20 08:21:32,531 - INFO - Loading or creating vectorstore for BigBasket data
+2025-07-20 08:21:38,562 - INFO - Loading existing FAISS index from disk...
+2025-07-20 08:24:10,967 - INFO - Loading or creating vectorstore for BigBasket data
+2025-07-20 08:24:16,809 - INFO - Loading existing FAISS index from disk...
+2025-07-20 08:24:17,545 - INFO - Generating RAG chain with custom retriever
+2025-07-20 08:24:18,981 - INFO - RAG chain successfully created
+2025-07-20 08:25:02,692 - INFO - Retrieving documents for: 'High-rated shampoos formulated for dry hair'
+2025-07-20 08:25:04,026 - INFO - Reranking 10 documents for query: 'High-rated shampoos formulated for dry hair'
+2025-07-20 08:25:07,507 - INFO - Reranking complete

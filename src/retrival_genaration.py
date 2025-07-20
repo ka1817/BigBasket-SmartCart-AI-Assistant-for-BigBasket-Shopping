@@ -47,11 +47,24 @@ class RerankRetriever(BaseRetriever, BaseModel):
         return reranked_docs[:self.top_k]
 
 def ingest_bigbasket_data():
-    logger.info("Starting preprocessing and embedding for BigBasket data")
-    docs = preprocess_bigbasket_docs()
+    logger.info("Loading or creating vectorstore for BigBasket data")
+
     embedding_model = HuggingFaceEmbeddings(model_name="thenlper/gte-small")
-    vectorstore = FAISS.from_documents(docs, embedding_model)
-    logger.info("Vectorstore creation complete")
+
+    persist_path = os.path.join(os.getcwd(), "vectorstore")
+
+    if os.path.exists(os.path.join(persist_path, "index.faiss")):
+        logger.info("Loading existing FAISS index from disk...")
+        vectorstore = FAISS.load_local(persist_path, embeddings=embedding_model, allow_dangerous_deserialization=True)
+
+    else:
+        logger.info("No existing index found. Creating a new one...")
+        docs = preprocess_bigbasket_docs()
+        vectorstore = FAISS.from_documents(docs, embedding_model)
+        os.makedirs(persist_path, exist_ok=True)
+        vectorstore.save_local(persist_path)
+        logger.info(f"Vectorstore saved to disk at {persist_path}")
+
     return vectorstore
 
 def generate_bigbasket_chain(vectorstore):
