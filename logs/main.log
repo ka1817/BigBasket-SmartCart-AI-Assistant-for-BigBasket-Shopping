@@ -25,3 +25,7 @@
 2025-07-20 08:24:18,981 - INFO - RAG pipeline initialized
 2025-07-20 08:24:58,911 - INFO - Received query: 'Which shampoo is best for dry hair with high ratings?'
 2025-07-20 08:25:08,744 - INFO - Answer generated for query
+2025-07-29 08:38:56,923 - INFO - Ingesting data and initializing vectorstore...
+2025-07-29 08:39:04,593 - INFO - RAG pipeline initialized
+2025-07-29 08:39:30,157 - INFO - Received query: 'which is the cheapest hair oil'
+2025-07-29 08:39:37,019 - INFO - Answer generated for query

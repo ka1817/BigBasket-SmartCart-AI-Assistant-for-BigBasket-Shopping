@@ -20,6 +20,9 @@ from src.utils.logger import setup_logger
 
 load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+
 
 logger = setup_logger("retrieval_generation", "retrieval_generation.log")
 

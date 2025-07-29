@@ -18,3 +18,5 @@
 2025-07-20 08:20:19,655 - INFO - Rewritten query: 'Find detergent with the highest average user rating.'
 2025-07-20 08:24:58,911 - INFO - Received query for rewriting: 'Which shampoo is best for dry hair with high ratings?'
 2025-07-20 08:25:02,692 - INFO - Rewritten query: 'High-rated shampoos formulated for dry hair'
+2025-07-29 08:39:30,158 - INFO - Received query for rewriting: 'which is the cheapest hair oil'
+2025-07-29 08:39:33,422 - INFO - Rewritten query: 'Find the most affordable hair oil available.'

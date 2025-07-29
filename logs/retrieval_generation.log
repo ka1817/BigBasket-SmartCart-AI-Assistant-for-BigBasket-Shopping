@@ -46,3 +46,10 @@
 2025-07-20 08:25:02,692 - INFO - Retrieving documents for: 'High-rated shampoos formulated for dry hair'
 2025-07-20 08:25:04,026 - INFO - Reranking 10 documents for query: 'High-rated shampoos formulated for dry hair'
 2025-07-20 08:25:07,507 - INFO - Reranking complete
+2025-07-29 08:38:56,929 - INFO - Loading or creating vectorstore for BigBasket data
+2025-07-29 08:39:02,653 - INFO - Loading existing FAISS index from disk...
+2025-07-29 08:39:03,674 - INFO - Generating RAG chain with custom retriever
+2025-07-29 08:39:04,593 - INFO - RAG chain successfully created
+2025-07-29 08:39:33,422 - INFO - Retrieving documents for: 'Find the most affordable hair oil available.'
+2025-07-29 08:39:34,175 - INFO - Reranking 10 documents for query: 'Find the most affordable hair oil available.'
+2025-07-29 08:39:36,119 - INFO - Reranking complete
