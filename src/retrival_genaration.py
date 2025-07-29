@@ -113,4 +113,4 @@ if __name__ == "__main__":
     sample_query = "best organic basmati rice under ₹200"
     rewritten_query = query_rewriting(sample_query)
     response = chain.invoke(rewritten_query)
-    print(f"\n 🔁 Rewritten Query: {rewritten_query}\n🧠 Response:\n{response}")
+    print(f"\n Rewritten Query: {rewritten_query}\n Response:\n{response}")

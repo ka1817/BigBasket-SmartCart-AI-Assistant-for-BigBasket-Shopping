@@ -58,4 +58,4 @@ Rewritten Query:
 if __name__ == '__main__':
     sample_query = "which is the cheapest hair product with high rating"
     rewritten = query_rewriting(sample_query)
-    print(f"Original: {sample_query}\nRewritten: {rewritten}")
+    print(f"Original: {sample_query}\n Rewritten: {rewritten}")

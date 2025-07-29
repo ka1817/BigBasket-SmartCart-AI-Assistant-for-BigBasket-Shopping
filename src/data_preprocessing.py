@@ -56,5 +56,5 @@ def preprocess_bigbasket_docs():
 
 if __name__ == '__main__':
     docs = preprocess_bigbasket_docs()
-    print(f"Sample Document:\n{docs[1].page_content}\n")
+    print(f"Sample Document:\n{docs[0].page_content}\n")
 

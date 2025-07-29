@@ -24,4 +24,4 @@ def load_bigbasket_data():
 
 if __name__ == '__main__':
     df = load_bigbasket_data()
-    print(df.head(5))
+    print(df.head(3))
