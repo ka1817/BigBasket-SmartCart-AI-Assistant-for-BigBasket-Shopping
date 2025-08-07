@@ -4,12 +4,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 import uvicorn
 
-# Logging setup
 from src.utils.logger import setup_logger
 
 logger = setup_logger("main", "main.log")
 
-# RAG modules
 from src.retrival_genaration import ingest_bigbasket_data, generate_bigbasket_chain
 from src.query_rewritting import query_rewriting
 
@@ -17,7 +15,6 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Initialization
 logger.info("Ingesting data and initializing vectorstore...")
 vectorstore = ingest_bigbasket_data()
 chain = generate_bigbasket_chain(vectorstore)
