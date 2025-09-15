@@ -1,0 +1,10 @@
+artifact_location: mlflow-artifacts:/118788196498553359/models/m-65269d08a0054244a22e61295a3eba7f/artifacts
+creation_timestamp: 1757934837754
+experiment_id: '118788196498553359'
+last_updated_timestamp: 1757934842497
+model_id: m-65269d08a0054244a22e61295a3eba7f
+model_type: ''
+name: NaiveBayes
+source_run_id: 830049eb64c542e3985a075c08fc1043
+status: 2
+status_message: null

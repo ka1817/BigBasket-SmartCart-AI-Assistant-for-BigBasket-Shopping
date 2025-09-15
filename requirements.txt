@@ -4,11 +4,12 @@ langchain-community
 langchain
 langchain-huggingface
 sentence-transformers
+langchain_pinecone
 python-dotenv
-faiss-cpu
 python-multipart
 fastapi
 pydantic
 uvicorn[standard]
 jinja2
 pytest
+mlflow

@@ -1,27 +1,35 @@
 import pandas as pd
 import os
-from src.utils.logger import setup_logger
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s - %(message)s",
+)
+logger = logging.getLogger("DataIngestion")
 
-logger = setup_logger("data_ingestion", "data_ingestion.log")
 
-def load_bigbasket_data():
-    try:
-        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        train_path = os.path.join(base_dir, "data", "BigBasket Products.csv")
-        
-        df = pd.read_csv(train_path)
-        logger.info(f"Data loaded successfully from {train_path}")
-        logger.info(f"Dataset shape: {df.shape}")
-        
-        return df
+class DataIngestion:
+    def __init__(self, base_dir: str = None):
+        try:
+            self.base_dir = base_dir or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            self.data_file = os.path.join(self.base_dir, "data", "BigBasket Products.csv")
 
-    except FileNotFoundError:
-        logger.error(f"File not found at path: {train_path}")
-        raise
-    except Exception as e:
-        logger.error(f"Error occurred during data ingestion: {e}")
-        raise
+            if not os.path.exists(self.data_file):
+                raise FileNotFoundError(f"File not found at path: {self.data_file}")
 
-if __name__ == '__main__':
-    df = load_bigbasket_data()
-    print(df.head(3))
+            logger.info(f"DataIngestion initialized with data file: {self.data_file}")
+
+        except Exception as e:
+            logger.error(f"Error during DataIngestion initialization: {e}")
+            raise
+
+    def load_data(self) -> pd.DataFrame:
+        try:
+            df = pd.read_csv(self.data_file)
+            logger.info(f"Data loaded successfully from {self.data_file}")
+            logger.info(f"Dataset shape: {df.shape}")
+            return df
+        except Exception as e:
+            logger.error(f"Error occurred during data ingestion: {e}")
+            raise
+

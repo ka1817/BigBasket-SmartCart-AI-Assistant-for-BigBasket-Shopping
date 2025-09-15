@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/118788196498553359/830049eb64c542e3985a075c08fc1043/artifacts
+end_time: 1757934842659
+entry_point_name: ''
+experiment_id: '118788196498553359'
+lifecycle_stage: active
+run_id: 830049eb64c542e3985a075c08fc1043
+run_name: NaiveBayes
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757934837487
+status: 3
+tags: []
+user_id: saipr
