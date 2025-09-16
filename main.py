@@ -10,7 +10,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-router = QueryRouter(top_k=5)
+router = QueryRouter()
 
 @app.get("/", response_class=HTMLResponse)
 async def homepage(request: Request):

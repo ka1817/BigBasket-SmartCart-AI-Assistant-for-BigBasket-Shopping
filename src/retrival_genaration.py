@@ -10,6 +10,7 @@ from langchain.schema.output_parser import StrOutputParser
 
 from src.vectorstore import VectorStoreManager
 from src.query_classification import QueryClassifier
+from src.config.settings import settings
 
 logging.basicConfig(
     level=logging.INFO,
@@ -17,16 +18,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger("QueryRouter")
 
-load_dotenv()
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
-
 
 class QueryRouter:
-    def __init__(self, top_k: int = 5, confidence_threshold: float = 0.5):
-        self.top_k = top_k
-        self.confidence_threshold = confidence_threshold
+    def __init__(self):
+        self.top_k = settings.top_k
+        self.confidence_threshold = settings.confidence_threshold
 
         self.classifier = QueryClassifier()
         try:
@@ -61,28 +57,16 @@ class QueryRouter:
             except Exception as e:
                 logger.warning(f"⚠️ Failed to initialize retriever for '{category}': {e}")
 
-        self.llm = ChatGroq(model_name="llama-3.3-70b-versatile")
-        logger.info("✅ LLM loaded successfully.")
+        self.llm = ChatGroq(
+            model_name=settings.groq_model,
+            api_key=settings.groq_api_key
+        )
+        logger.info(f"✅ LLM loaded: {settings.groq_model}")
+
 
         self.prompt = PromptTemplate(
             input_variables=["context", "question", "category"],
-            template="""
-You are a helpful assistant.
-
-Category: {category}
-
-Use the context below to answer the question. Only use the information from the context.
-If the context does not provide enough info, say "I don't know."
-
-Context:
-{context}
-
-Question:
-{question}
-
-Answer clearly and concisely:
-            """,
-        )
+            template=settings.rag_prompt)
 
     def route(self, query: str) -> dict:
         probs = self.classifier.pipeline.predict_proba([query])[0]

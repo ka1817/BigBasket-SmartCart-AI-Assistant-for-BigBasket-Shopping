@@ -10,6 +10,7 @@ warnings.filterwarnings('ignore')
 from langchain_pinecone import PineconeVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_core.documents import Document
+from src.config.settings import settings
 
 logging.basicConfig(
     level=logging.INFO,
@@ -26,9 +27,9 @@ class VectorStoreManager:
         self.index_name = index_name
         self.dimension = dimension
 
-        self.pinecone_api_key = os.getenv("PINECONE_API_KEY")
+        self.pinecone_api_key = settings.pinecone_api_key
         if not self.pinecone_api_key:
-            raise ValueError("Missing PINECONE_API_KEY in environment variables")
+            raise ValueError("Missing PINECONE_API_KEY in configuration")
 
         self.pc = Pinecone(api_key=self.pinecone_api_key)
 
@@ -75,9 +76,7 @@ class VectorStoreManager:
         return self.vector_store
 
     def as_retriever(self, search_kwargs: Optional[dict] = None):
-        """
-        Get retriever for use in QA pipelines.
-        """
+       
         if not self.vector_store:
             self.create_or_load_index()
 

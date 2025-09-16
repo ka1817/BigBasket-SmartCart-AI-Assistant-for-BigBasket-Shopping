@@ -1,8 +1,21 @@
+#!/usr/bin/env python
+import logging
 from src.data_ingestion import DataIngestion
-if __name__ == "__main__":
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s - %(message)s"
+)
+logger = logging.getLogger("RunIngestion")
+
+def main():
     try:
-        data_ingestor = DataIngestion()
-        df = data_ingestor.load_data()
-        print(df.head(3))
+        logger.info("Starting data ingestion...")
+        ingestor = DataIngestion()
+        df = ingestor.load_data()
+        logger.info(f"Data ingestion completed. Rows loaded: {df.shape[0]}")
     except Exception as e:
-        logger.error(f"Failed to load data: {e}")
+        logger.error(f"Data ingestion failed: {e}")
+
+if __name__ == "__main__":
+    main()
