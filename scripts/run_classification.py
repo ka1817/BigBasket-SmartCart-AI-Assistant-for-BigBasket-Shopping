@@ -27,7 +27,7 @@ def main():
     except FileNotFoundError as fnf:
         logger.error(f"Model file not found: {fnf}")
     except Exception as e:
-        logger.error(f"Failed to load query classification pipeline: {e}")
+        logger.error(f"Failed to load query classification pipeline:{e}")
 
 if __name__ == "__main__":
     main()

@@ -7,7 +7,6 @@ logging.basicConfig(
 )
 logger = logging.getLogger("DataIngestion")
 
-
 class DataIngestion:
     def __init__(self, base_dir: str = None):
         try:

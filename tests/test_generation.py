@@ -8,7 +8,7 @@ from src.retrival_genaration import QueryRouter
 )
 def test_query_router_initialization():
     """Test that the QueryRouter initializes without errors."""
-    router = QueryRouter(top_k=2, confidence_threshold=0.5)
+    router = QueryRouter()
     assert router.global_retriever is not None, "Global retriever should be initialized"
     assert isinstance(router.retrievers, dict), "Retrievers should be a dictionary"
     print(f"Available categories: {list(router.retrievers.keys())}")
@@ -20,7 +20,7 @@ def test_query_router_initialization():
 )
 def test_route_query():
     """Test routing a sample query."""
-    router = QueryRouter(top_k=2, confidence_threshold=0.5)
+    router = QueryRouter()
     sample_query = "Which beauty products are the most popular? based on rating"
     
     result = router.route(sample_query)

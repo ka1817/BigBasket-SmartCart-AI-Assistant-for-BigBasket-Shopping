@@ -7,7 +7,6 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s - %(message)s"
 )
 logger = logging.getLogger("RunVectorDB")
-
 def main():
     try:
         logger.info("Loading existing vector store...")

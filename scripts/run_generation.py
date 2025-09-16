@@ -8,7 +8,6 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s - %(message)s"
 )
 logger = logging.getLogger("RunGeneration")
-
 def main():
     try:
         logger.info("Initializing RAG QueryRouter...")

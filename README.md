@@ -12,7 +12,7 @@ Online shoppers frequently seek personalized and context-specific product recomm
 
 ---
 
-## Business Goal:
+## Business Goal :
 
 To enhance the shopping experience, boost conversion rates, and optimize search efficiency by enabling natural language-based product search that understands user intent and delivers context-aware, personalized recommendations.
 

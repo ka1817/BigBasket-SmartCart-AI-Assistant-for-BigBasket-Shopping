@@ -16,6 +16,7 @@ def main():
         logger.info(f"Data ingestion completed. Rows loaded: {df.shape[0]}")
     except Exception as e:
         logger.error(f"Data ingestion failed: {e}")
+        
 
 if __name__ == "__main__":
     main()

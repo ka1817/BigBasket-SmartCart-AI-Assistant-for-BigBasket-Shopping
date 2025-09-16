@@ -73,7 +73,6 @@ class QueryRouter:
         predicted_idx = probs.argmax()
         predicted_category = self.classifier.pipeline.classes_[predicted_idx]
         confidence = probs[predicted_idx]
-
         logger.info(f"Predicted category: {predicted_category} (confidence={confidence:.2f})")
 
         if confidence < self.confidence_threshold:

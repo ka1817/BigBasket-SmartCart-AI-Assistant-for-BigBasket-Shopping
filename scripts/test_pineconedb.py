@@ -15,7 +15,6 @@ if __name__ == "__main__":
         k=3,
         filter=metadata_filter  
     )
-
     for r in results:
         print(f"Product: {r.metadata['product']}")
         print(f"Category: {r.metadata['category']}")

@@ -15,7 +15,6 @@ def test_models_folder_exists(models_dir_exists):
     """Ensure that the models directory exists."""
     assert os.path.isdir(models_dir_exists), f"Expected models directory at {models_dir_exists}"
 
-
 def test_pipeline_file_exists(models_dir_exists):
     """Ensure that the classifier_pipeline.pkl file exists inside models/."""
     pipeline_path = os.path.join(models_dir_exists, "RandomForest_pipeline.joblib")

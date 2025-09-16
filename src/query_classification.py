@@ -114,6 +114,5 @@ class QueryClassifier:
         joblib_path = os.path.join(JOBLIB_DIR, f"{model_name}_pipeline.joblib")
         if not os.path.exists(joblib_path):
             raise FileNotFoundError(f"Pipeline file not found: {joblib_path}")
-
         logger.info(f"Loading pipeline from local file: {joblib_path}")
         self.pipeline = joblib.load(joblib_path)

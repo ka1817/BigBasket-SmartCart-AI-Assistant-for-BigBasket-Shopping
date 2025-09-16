@@ -1,7 +1,6 @@
 import pandas as pd
 import pytest
 from src.data_ingestion import DataIngestion
-
 @pytest.fixture
 def sample_csv(tmp_path):
     data = [

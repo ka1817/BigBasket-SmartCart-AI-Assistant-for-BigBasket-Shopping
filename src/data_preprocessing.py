@@ -71,6 +71,7 @@ class BigBasketPreprocessor:
             docs.append(Document(page_content=text, metadata=metadata))
 
         logger.info(f"Generated {len(docs)} Document objects for RAG.")
+        
         return docs
 
 

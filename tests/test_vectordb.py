@@ -1,6 +1,5 @@
 import pytest
 from src.vectorstore import VectorStoreManager
-
 @pytest.fixture
 def vectorstore_manager():
     return VectorStoreManager(index_name="bigbasket-products")
