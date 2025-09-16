@@ -2,7 +2,6 @@ import logging
 import os
 import warnings
 warnings.filterwarnings('ignore')
-from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain.prompts import PromptTemplate
 from langchain.schema.runnable import RunnableParallel, RunnablePassthrough, RunnableLambda
@@ -17,6 +16,10 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s - %(message)s",
 )
 logger = logging.getLogger("QueryRouter")
+
+os.environ["LANGCHAIN_TRACING_V2"] = "true"  
+os.environ["LANGCHAIN_API_KEY"] = settings.langchain_api_key
+os.environ["LANGCHAIN_PROJECT"] = settings.langchain_project
 
 
 class QueryRouter:

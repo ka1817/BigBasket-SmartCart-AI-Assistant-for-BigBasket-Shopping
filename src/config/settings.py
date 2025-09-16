@@ -8,8 +8,10 @@ class Settings(BaseSettings):
     groq_api_key: str = os.getenv("GROQ_API_KEY")
     groq_model: str = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
     langchain_tracing: bool = os.getenv("LANGCHAIN_TRACING_V2", "false").lower() == "true"
+    langchain_project: str = os.getenv("LANGCHAIN_PROJECT", "BigBasket-RAG")
     langchain_api_key: str = os.getenv("LANGCHAIN_API_KEY")
     pinecone_api_key: str = os.getenv("PINECONE_API_KEY")
+
     
     top_k: int = int(os.getenv("TOP_K", 5))
     confidence_threshold: float = float(os.getenv("CONFIDENCE_THRESHOLD", 0.5))
