@@ -54,32 +54,121 @@ To enhance the shopping experience, boost conversion rates, and optimize search 
 
 ## 🚀 Features
 
-🔍 Natural Language Product Search
-Users can ask queries like "cheapest skin care with highest rating" or "best perfume under ₹500".
+Here’s the refined **architecture diagram** for your BigBasket RAG pipeline and a detailed breakdown of its **features**:
 
-🧠 Query Rewriting with LLM
-Uses Groq LLMs (gemma2-9b-it) to refine user queries for more precise retrieval.
+---
 
-📄 Document Embedding & Vector Search
-Preprocessed BigBasket product data embedded with thenlper/gte-small and indexed using FAISS.
+## 🏗️ Correct Architecture Diagram
 
-🤖 RAG Pipeline
-Uses llama3-70b-8192 model for final answer generation based on retrieved and reranked results.
+```
+                   ┌──────────────┐
+                   │   User Query │
+                   └──────┬───────┘
+                          │
+                          ▼
+                  ┌───────────────────┐
+                  │ Query Classifier  │
+                  │ (LogisticRegression) │
+                  └─────────┬─────────┘
+                            │ Predicted Category + Confidence
+                            ▼
+          ┌─────────────────┴──────────────────┐
+          │                                    │
+Confidence ≥ Threshold                 Confidence < Threshold
+          │                                    │
+          ▼                                    ▼
+┌───────────────────────────┐      ┌───────────────────────────┐
+│ Category-Specific Retriever│      │ Global Retriever          │
+│ (Pinecone VectorStore)     │      │ (Pinecone VectorStore)    │
+│ + ContextualCompression    │      │ + ContextualCompression   │
+│ + Cross-Encoder Reranker   │      │ + Cross-Encoder Reranker  │
+└───────────────┬───────────┘      └───────────────┬───────────┘
+                │                                  │
+                ▼                                  ▼
+       Retrieved & Reranked Docs          Retrieved & Reranked Docs
+                │                                  │
+                └──────────────┬───────────────────┘
+                               ▼
+                        ┌───────────────┐
+                        │   RAG Prompt  │
+                        │ (context,     │
+                        │ question, cat)│
+                        └──────┬────────┘
+                               ▼
+                        ┌───────────────┐
+                        │     LLM       │
+                        │   ChatGroq    │
+                        └──────┬────────┘
+                               ▼
+                       ┌────────────────┐
+                       │  Final Answer  │
+                       └────────────────┘
+```
 
-🔁 Reranking with CrossEncoder
-Improves accuracy using cross-encoder/ms-marco-MiniLM-L-6-v2.
+---
 
-🌐 FastAPI Backend
-Easily accessible via localhost:8000 or deployed server.
+## ✨ Features of This Project
 
-🐳 Dockerized
-Build once, run anywhere. Fully containerized using Docker.
+### 🔹 Data Layer
 
-🚰 CI/CD with GitHub Actions
-Automated testing, image build, and push to DockerHub.
+* **Data Ingestion**: Loads BigBasket product data (CSV) with logging & error handling.
+* **Preprocessing**: Cleans missing values, enforces numeric conversions, and enriches data with `category_tag`.
+* **Document Creation**: Converts product data into `LangChain Document` objects for RAG.
 
-📜 Logging
-Logging implemented for each step in the pipeline for transparency and debugging.
+### 🔹 Query Understanding
+
+* **Query Classification**:
+
+  * Uses **Logistic Regression** with TF-IDF features.
+  * Trained with category labels to classify user queries.
+  * MLflow integration for experiment tracking & model registry.
+  * Models persisted locally with Joblib.
+
+### 🔹 Vector Database & Retrieval
+
+* **Pinecone VectorStore**:
+
+  * Stores product embeddings using HuggingFace embeddings.
+  * Supports both **global retrieval** (across all categories) and **category-specific retrieval** (filtered by classifier).
+* **Retriever Types**:
+
+  * **Category Retriever** → Activated if classifier confidence ≥ threshold.
+  * **Global Retriever** → Activated if classifier confidence < threshold.
+
+### 🔹 Reranking
+
+* **ContextualCompressionRetriever**:
+
+  * Uses a **cross-encoder (MiniLM)** for reranking retrieved results.
+  * Ensures most relevant documents are prioritized before passing to the LLM.
+
+### 🔹 Generation
+
+* **RAG Prompt**:
+
+  * Dynamically structured with context, question, and predicted category.
+* **ChatGroq LLM**:
+
+  * Provides natural language answers.
+  * Powered by Groq API for efficient text generation.
+
+### 🔹 Logging & Monitoring
+
+* Structured logging at every stage (data loading, preprocessing, training, retrieval, reranking, generation).
+* Error handling ensures resilience in pipeline execution.
+
+### 🔹 Scalability & Modularity
+
+* Separate modules for:
+
+  * `data_ingestion.py`
+  * `data_preprocessing.py`
+  * `query_classification.py`
+  * `vectorstore.py`
+  * `retrieval_generation.py`
+  * `reranking_generation.py`
+* Easy to extend with new retrievers, embeddings, or classifiers.
+
 
 ---
 
