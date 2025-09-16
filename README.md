@@ -119,14 +119,14 @@ Confidence ≥ Threshold                 Confidence < Threshold
 
 * **Query Classification**:
 
-  * Uses **Logistic Regression** with TF-IDF features.
+  * Uses **Logistic Regression**/**Random Forest** with TF-IDF features.
   * Trained with category labels to classify user queries.
   * MLflow integration for experiment tracking & model registry.
   * Models persisted locally with Joblib.
 
 ### 🔹 Vector Database & Retrieval
 
-* **Pinecone VectorStore**:
+* **Pinecone VectorDatabase**:
 
   * Stores product embeddings using HuggingFace embeddings.
   * Supports both **global retrieval** (across all categories) and **category-specific retrieval** (filtered by classifier).
@@ -174,40 +174,54 @@ Confidence ≥ Threshold                 Confidence < Threshold
 
 ## 🗂️ Folder Structure
 
-```bash
-BIGBASKET/
+Here’s the **project structure** based on your screenshots:
+
+```
+BIGBASKET-RAG/
+│
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml
-├── data/
-│   └── BigBasket Products.csv
-├── logs/
-│   ├── data_ingestion.log
-│   ├── data_preprocessing.log
-│   ├── query_rewriting.log
-│   └── retrieval_generation.log
-├── src/
-│   ├── utils/
-│   │   └── logger.py
+│       └── ci-cd.yml              # GitHub Actions CI/CD pipeline config
+│
+├── .pytest_cache/                 # Pytest cache files
+├── data/                          # Dataset directory (e.g., BigBasket Products.csv)
+├── mlartifacts/                   # MLflow artifacts
+├── mlruns/                        # MLflow experiment runs
+├── models/                        # Trained model pipelines (Joblib)
+├── notebook/                      # Jupyter notebooks for experimentation
+├── scripts/                       # Utility or automation scripts
+│
+├── src/                           # Main source code
+│   ├── __pycache__/               # Python cache files
+│   ├── config/                    # Configuration settings
+│   │   └── settings.py
 │   ├── __init__.py
-│   ├── data_ingestion.py
-│   ├── data_preprocessing.py
-│   ├── query_rewritting.py
-│   └── retrival_genaration.py
-├── static/
+│   ├── data_ingestion.py          # Loads product data from CSV
+│   ├── data_preprocessing.py      # Cleans data and prepares LangChain Documents
+│   ├── query_classification.py    # ML models for query classification
+│   ├── reranking_generation.py    # QueryRouter with reranking using cross-encoder
+│   ├── retrival_generation.py     # QueryRouter without reranking
+│   └── vectorstore.py             # Pinecone VectorStore manager
+│
+├── static/                        # Static assets (CSS)
 │   └── css/
-│       └── style.css
-├── templates/
+│
+├── templates/                     # Frontend templates (HTML, Jinja2)
 │   └── index.html
-├── tests/
-├── ui/
-├── main.py
-├── Dockerfile
-├── requirements.txt
-├── .env
-├── .dockerignore
-├── .gitignore
-└── README.md
+│
+├── tests/                         # Unit and integration tests
+├── ui/                            # UI image
+├── vectorstore/                   # Additional vectorstore-related scripts/configs
+├── venv/                          # Python virtual environment (ignored in Git)
+│
+├── .dockerignore                  # Ignore rules for Docker
+├── .env                           # Environment variables (API keys, configs)
+├── .gitignore                     # Ignore rules for Git
+├── Dockerfile                     # Docker image setup
+├── main.py                        # Application entry point
+├── pytest.ini                     # Pytest configuration
+├── README.md                      # Project documentation
+└── requirements.txt               # Python dependencies
 ```
 
 ---
@@ -305,9 +319,9 @@ docker run -d --env-file .env -p 8000:8000 pranavreddy123/bigbasket-assistant:la
 
 ## 🧠 Tech Stack
 
-✅ LLMs: Groq (gemma2-9b-it, llama3-70b-8192)
+✅ LLMs: Groq (llama3-70b-8192)
 
-✅ LangChain, FAISS, HuggingFace, CrossEncoder
+✅ LangChain,Pinecone ,FAISS(experimentation), HuggingFace, CrossEncoder
 
 ✅ FastAPI
 
