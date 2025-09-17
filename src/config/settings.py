@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     
     top_k: int = int(os.getenv("TOP_K", 5))
     confidence_threshold: float = float(os.getenv("CONFIDENCE_THRESHOLD", 0.5))
+    rerank_top_n: int = int(os.getenv("TOP_N",3))
+    classifier_model: str = os.getenv("CLASSIFIER_MODEL", "LogisticRegression")  
     rag_prompt: str = """
 You are a helpful assistant providing information about BigBasket products.
 

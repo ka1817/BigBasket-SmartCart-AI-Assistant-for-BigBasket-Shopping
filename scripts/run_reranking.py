@@ -1,5 +1,5 @@
 import logging
-from src.retrival_genaration import QueryRouter
+from src.reranking_genaration import QueryRouter
 from src.config.settings import settings
 
 logging.basicConfig(

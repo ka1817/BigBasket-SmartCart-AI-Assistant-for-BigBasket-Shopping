@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import logging
 from src.data_ingestion import DataIngestion
 

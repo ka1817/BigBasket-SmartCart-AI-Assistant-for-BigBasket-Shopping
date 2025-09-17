@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 import uvicorn
 
-from src.retrival_genaration import QueryRouter
+from src.reranking_genaration import QueryRouter
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
