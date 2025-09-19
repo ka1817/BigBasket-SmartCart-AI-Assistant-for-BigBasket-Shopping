@@ -104,7 +104,6 @@ Confidence ≥ Threshold                 Confidence < Threshold
                        │  Final Answer  │
                        └────────────────┘
 ```
-
 ---
 
 ## ✨ Features of This Project
@@ -265,14 +264,6 @@ pranavreddy123/bigbasket-assistant:latest
 ```bash
 http://localhost:8000
 ```
-
----
-
-🤖 Example Usage
-
-Query: "Which is the cheapest hair product with high rating?"
-Rewritten: "Find the most affordable hair care product with a high customer rating."
-Response: "Garlic Oil - Vegetarian Capsule 500 mg by Sri Sri Ayurveda is available at ₹220 with a 4.1 rating."
 
 ---
 
